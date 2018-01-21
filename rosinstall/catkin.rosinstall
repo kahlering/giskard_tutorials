@@ -1,0 +1,8 @@
+- git: 
+    local-name: pr2_common
+    uri: https://github.com/PR2/pr2_common.git
+    version: indigo-devel
+- git: 
+    local-name: ros_control_boilerplate
+    uri: https://github.com/davetcoleman/ros_control_boilerplate.git
+    version: indigo-devel
