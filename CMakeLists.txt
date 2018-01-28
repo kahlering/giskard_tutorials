@@ -36,14 +36,14 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
- add_executable(joint_space_action_client src/examples/joint_space_action_client.cpp)
- add_executable(cartesian_space_action_client src/examples/cartesian_space_action_client.cpp)
- add_executable(joint_and_cartesian_space_commands src/examples/joint_and_cartesian_space_commands.cpp)
+ add_executable(joint_space_action_client_example src/examples/joint_space_action_client.cpp)
+ add_executable(cartesian_space_action_client_example src/examples/cartesian_space_action_client.cpp)
+ add_executable(joint_and_cartesian_space_action_client_example src/examples/joint_and_cartesian_space_commands.cpp)
 
 
 
 ## Specify libraries to link a library or executable target against
 
-target_link_libraries(cartesian_space_action_client ${catkin_LIBRARIES})
-target_link_libraries(joint_space_action_client ${catkin_LIBRARIES})
-target_link_libraries(joint_and_cartesian_space_commands ${catkin_LIBRARIES})
+target_link_libraries(joint_space_action_client_example ${catkin_LIBRARIES})
+target_link_libraries(cartesian_space_action_client_example ${catkin_LIBRARIES})
+target_link_libraries(joint_and_cartesian_space_action_client_example ${catkin_LIBRARIES})
