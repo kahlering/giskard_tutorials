@@ -39,26 +39,8 @@ int main(int argc, char** argv)
   joint_space_controller.threshold_value = 0.1;
   joint_space_controller.goal_pose.header.frame_id = "base_link";
  
-  /*joint_space_controller.goal_state.name.push_back("torso_lift_joint");
-  joint_space_controller.goal_state.name.push_back("l_upper_arm_roll_joint");
-  joint_space_controller.goal_state.name.push_back("l_shoulder_pan_joint");
-  joint_space_controller.goal_state.name.push_back("l_shoulder_lift_joint");
-  joint_space_controller.goal_state.name.push_back("l_forearm_roll_joint");
-  joint_space_controller.goal_state.name.push_back("l_elbow_flex_joint");
-  joint_space_controller.goal_state.name.push_back("l_wrist_flex_joint");
-  joint_space_controller.goal_state.name.push_back("l_wrist_roll_joint");*/
-
   joint_space_controller.goal_state.name = {"torso_lift_joint", "l_upper_arm_roll_joint", "l_shoulder_pan_joint", "l_shoulder_lift_joint", "l_forearm_roll_joint", "l_elbow_flex_joint", "l_wrist_flex_joint", "l_wrist_roll_joint"};
  
-  /*joint_space_controller.goal_state.position.push_back(0);
-  joint_space_controller.goal_state.position.push_back(1);
-  joint_space_controller.goal_state.position.push_back(0.5);
-  joint_space_controller.goal_state.position.push_back(0.2);
-  joint_space_controller.goal_state.position.push_back(0);
-  joint_space_controller.goal_state.position.push_back(-0.8);
-  joint_space_controller.goal_state.position.push_back(-1);
-  joint_space_controller.goal_state.position.push_back(0);*/
-
   joint_space_controller.goal_state.position = {0, 1, 0.5, 0.2, 0, -0.8, -1, 0};
  
 
