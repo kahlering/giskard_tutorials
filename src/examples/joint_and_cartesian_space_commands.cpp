@@ -10,11 +10,11 @@ int main(int argc, char** argv)
   giskard_msgs::ControllerListGoal goal;
   
 
-  //create the cartesian space controller
+  // create the cartesian space controller
   giskard_msgs::Controller cartesian_space_controller;
  
   cartesian_space_controller.type = 2;
-  cartesian_space_controller.root_link = "torso_lift_link";
+  cartesian_space_controller.root_link = "base_link";
   cartesian_space_controller.tip_link = "l_gripper_tool_frame";
   cartesian_space_controller.p_gain = 1;
   cartesian_space_controller.weight = 1;
@@ -27,24 +27,24 @@ int main(int argc, char** argv)
   cartesian_space_controller.goal_pose.pose.position.z = 1.3;
  
 
-  //create the joint space controller
+  // create the joint space controller
   giskard_msgs::Controller joint_space_controller;
  
   joint_space_controller.type = 1;
   joint_space_controller.root_link = "torso_lift_link";
-  joint_space_controller.tip_link = "l_gripper_tool_frame";
+  joint_space_controller.tip_link = "l_gripper_palm_link";
   joint_space_controller.p_gain = 1;
-  joint_space_controller.weight = 0.5;
+  joint_space_controller.weight = 1;
   joint_space_controller.enable_error_threshold = false;
   joint_space_controller.threshold_value = 0.1;
   joint_space_controller.goal_pose.header.frame_id = "base_link";
  
-  joint_space_controller.goal_state.name = {"torso_lift_joint", "l_upper_arm_roll_joint", "l_shoulder_pan_joint", "l_shoulder_lift_joint", "l_forearm_roll_joint", "l_elbow_flex_joint", "l_wrist_flex_joint", "l_wrist_roll_joint"};
+  joint_space_controller.goal_state.name = {"l_shoulder_pan_joint", "l_upper_arm_roll_joint", "l_shoulder_lift_joint", "l_forearm_roll_joint", "l_elbow_flex_joint", "l_wrist_flex_joint", "l_wrist_roll_joint"};
  
-  joint_space_controller.goal_state.position = {0, 1, 0.5, 0.2, 0, -0.8, -1, 0};
+  joint_space_controller.goal_state.position = {0.5, 1, 0.2, 0, -0.8, -1, 0};
  
 
-  //add both controllers to the ActionList message
+  // add both controllers to the ActionList message
   goal.controllers.push_back(joint_space_controller);
   goal.controllers.push_back(cartesian_space_controller);
  
