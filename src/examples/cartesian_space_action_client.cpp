@@ -15,7 +15,7 @@ int main(int argc, char** argv)
   controller.tip_link = "l_gripper_tool_frame";
   controller.p_gain = 1;
   controller.weight = 1;
-  controller.enable_error_threshold = false;
+  controller.enable_error_threshold = true;
   controller.threshold_value = 0.1;
   controller.goal_pose.header.frame_id = "base_link";
  

@@ -13,13 +13,13 @@ int main(int argc, char** argv)
   // create the cartesian space controller
   giskard_msgs::Controller cartesian_space_controller;
  
-  cartesian_space_controller.type = 2;
+  cartesian_space_controller.type = giskard_msgs::Controller::TRANSLATION_3D;
   cartesian_space_controller.root_link = "base_link";
   cartesian_space_controller.tip_link = "l_gripper_tool_frame";
   cartesian_space_controller.p_gain = 1;
   cartesian_space_controller.weight = 1;
-  cartesian_space_controller.enable_error_threshold = false;
-  cartesian_space_controller.threshold_value = 0.1;
+  cartesian_space_controller.enable_error_threshold = true;
+  cartesian_space_controller.threshold_value = 1;
   cartesian_space_controller.goal_pose.header.frame_id = "base_link";
  
   cartesian_space_controller.goal_pose.pose.position.x = 0.0;
@@ -30,7 +30,7 @@ int main(int argc, char** argv)
   // create the joint space controller
   giskard_msgs::Controller joint_space_controller;
  
-  joint_space_controller.type = 1;
+  joint_space_controller.type = giskard_msgs::Controller::JOINT;
   joint_space_controller.root_link = "torso_lift_link";
   joint_space_controller.tip_link = "l_gripper_palm_link";
   joint_space_controller.p_gain = 1;
