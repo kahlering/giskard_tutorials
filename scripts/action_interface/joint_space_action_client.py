@@ -28,6 +28,7 @@ def joint_space_client():
     controller.tip_link = "l_gripper_tool_frame"
     controller.p_gain = 1
     controller.weight = 1
+    controller.max_speed = 1
     controller.goal_pose.header.frame_id = "base_link"
     controller.goal_state.name = ["l_upper_arm_roll_joint",  "l_shoulder_pan_joint", "l_shoulder_lift_joint", "l_forearm_roll_joint", "l_elbow_flex_joint", "l_wrist_flex_joint", "l_wrist_roll_joint"]   
     controller.goal_state.position = [1, 0.5, 0.2, 0, -0.8, -1, 0]
@@ -49,5 +50,6 @@ if __name__ == '__main__':
         # publish and subscribe over ROS.
         rospy.init_node('joint_space_client')
         result = joint_space_client()
+        a = 1
     except rospy.ROSInterruptException:
         print("program interrupted before completion")

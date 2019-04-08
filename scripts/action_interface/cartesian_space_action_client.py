@@ -10,13 +10,11 @@ import actionlib
 def joint_space_client():
     # Creates the SimpleActionClient, passing the type of the action
     # (MoveAction) to the constructor.
-    client = actionlib.SimpleActionClient("/qp_controller/command", MoveAction)
+    client = actionlib.SimpleActionClient("/giskardpy/command", MoveAction)
 
     # Waits until the action server has started up and started
     # listening for goals.
     client.wait_for_server()
-
-    print("test")
 
     # Creates a goal to send to the action server.
     goal = MoveGoal()
@@ -30,6 +28,7 @@ def joint_space_client():
     controller.tip_link = "l_gripper_tool_frame"
     controller.p_gain = 1
     controller.weight = 1
+    controller.max_speed = 1
     controller.goal_pose.header.frame_id = "base_link"
 
     controller.goal_pose.pose.position.x = 0.3
@@ -57,6 +56,5 @@ if __name__ == '__main__':
         # publish and subscribe over ROS.
         rospy.init_node('joint_space_client')
         result = joint_space_client()
-        print(str(result))
     except rospy.ROSInterruptException:
         print("program interrupted before completion")

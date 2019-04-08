@@ -24,9 +24,10 @@ int main(int argc, char** argv)
   cartesian_space_controller.tip_link = "l_gripper_tool_frame";
   cartesian_space_controller.p_gain = 1;
   cartesian_space_controller.weight = 1;
+  cartesian_space_controller.max_speed = 1;
   cartesian_space_controller.goal_pose.header.frame_id = "base_link";
-  cartesian_space_controller.goal_pose.pose.position.x = 0.0;
-  cartesian_space_controller.goal_pose.pose.position.y = 0.5;
+  cartesian_space_controller.goal_pose.pose.position.x = 0.3;
+  cartesian_space_controller.goal_pose.pose.position.y = 0.3;
   cartesian_space_controller.goal_pose.pose.position.z = 1.3;
  
 
@@ -38,6 +39,7 @@ int main(int argc, char** argv)
   joint_space_controller.tip_link = "l_gripper_palm_link";
   joint_space_controller.p_gain = 1;
   joint_space_controller.weight = 1;
+  joint_space_controller.max_speed = 1;
   joint_space_controller.goal_pose.header.frame_id = "base_link";
   joint_space_controller.goal_state.name = {"l_shoulder_pan_joint", "l_upper_arm_roll_joint", "l_shoulder_lift_joint", "l_forearm_roll_joint", "l_elbow_flex_joint", "l_wrist_flex_joint", "l_wrist_roll_joint"};
   joint_space_controller.goal_state.position = {0.5, 1, 0.2, 0, -0.8, -1, 0};

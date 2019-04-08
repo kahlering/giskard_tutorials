@@ -22,6 +22,7 @@ int main(int argc, char** argv)
   controller.tip_link = "l_gripper_tool_frame";
   controller.p_gain = 1;
   controller.weight = 1;
+  controller.max_speed = 1;
   controller.goal_pose.header.frame_id = "base_link";
  
   controller.goal_pose.pose.position.x = 0.3;
